@@ -10,31 +10,11 @@ class G7Protocol:
 
         self.transport = transport
 
-    class G7Protocol:
-
-    """
-
-    Handles communication with the GameSir G7 Pro protocol.
-
-    """
-
-    def __init__(self, transport):
-
-        self.transport = transport
-
     def connect(self):
 
         self.transport.connect()
 
         return self.transport.connected
-
-    def read_profile(self, profile_number):
-
-        raise NotImplementedError
-
-    def write_profile(self, profile_number, data):
-
-        raise NotImplementedError
 
     def read_profile(self, profile_number):
 
