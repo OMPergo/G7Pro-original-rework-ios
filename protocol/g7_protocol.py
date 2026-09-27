@@ -1,11 +1,5 @@
 class G7Protocol:
 
-    """
-
-    Handles communication with the GameSir G7 Pro protocol.
-
-    """
-
     def __init__(self, transport):
 
         self.transport = transport
@@ -28,7 +22,21 @@ class G7Protocol:
 
             raise RuntimeError("G7 Pro is not connected")
 
-        self.transport.write(data)
+        return self.transport.write(data)
+
+    def read(self):
+
+        if not self.transport.connected:
+
+            raise RuntimeError("G7 Pro is not connected")
+
+        return self.transport.read()
+
+    @property
+
+    def connected(self):
+
+        return self.transport.connected
 
     def read_profile(self, profile_number):
 
