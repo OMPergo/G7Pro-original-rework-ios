@@ -101,3 +101,74 @@ Reference
 The project uses publicly available reverse-engineering research and existing open-source implementations as technical references.
 
 G7Forge is an independent implementation and is not affiliated with GameSir.
+MNK Translation
+
+G7Forge aims to provide a dedicated mouse-and-keyboard-to-controller translation system.
+
+The goal is not simply to remap keyboard buttons to controller buttons. The system should translate keyboard and mouse input into controller-style output in a way that allows the controller to be used as an intermediary between MNK input and games that normally expect controller input.
+
+Keyboard → Controller
+
+The system should support configurable keyboard-to-controller translation, including:
+
+* WASD → left analog stick
+* Keyboard buttons → controller buttons
+* Modifier keys → controller buttons
+* Configurable keybinds
+* Configurable analog movement behavior
+* Deadzone configuration
+* Response curves
+* Maximum stick output
+* Movement response/acceleration where technically possible
+
+Mouse → Controller
+
+The system should support dedicated mouse-to-right-stick translation.
+
+Mouse movement should be converted into controller right-stick output rather than simply assigning mouse buttons to controller buttons.
+
+The system should eventually support:
+
+* Mouse X → right-stick X
+* Mouse Y → right-stick Y
+* Horizontal sensitivity
+* Vertical sensitivity
+* Independent X/Y sensitivity
+* Deadzone behavior
+* Response curves
+* Smoothing where appropriate
+* Maximum stick output
+* Configurable response behavior
+* Separate sensitivity profiles where technically possible
+
+Controller Output
+
+The goal is for the resulting output to behave as a normal controller input to the game.
+
+The translation system should avoid unnecessary software layers between the input device, G7Forge, and the resulting controller output.
+
+The desired architecture is:
+
+Keyboard + Mouse
+        ↓
+   G7Forge MNK
+   Translation
+        ↓
+ Controller Output
+        ↓
+      Game
+
+rather than relying on multiple independent input-mapping systems simultaneously.
+
+Research Requirement
+
+MNK translation is a major engineering feature and should not be assumed to be possible through the currently documented G7 Pro configuration protocol.
+
+The project must determine which portions can be implemented through:
+
+1. Persistent G7 Pro hardware configuration
+2. Controller firmware capabilities
+3. G7Forge runtime translation
+4. A combination of the above
+
+The final implementation should be based on experimentally verified behavior rather than assumptions from GameSir Nexus, Steam Input, or other controller software.
