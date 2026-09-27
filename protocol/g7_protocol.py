@@ -16,6 +16,12 @@ class G7Protocol:
 
         return self.transport.connected
 
+    def disconnect(self):
+
+        self.transport.disconnect()
+
+        return not self.transport.connected
+
     def read_profile(self, profile_number):
 
         raise NotImplementedError
