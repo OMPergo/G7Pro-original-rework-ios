@@ -22,6 +22,14 @@ class G7Protocol:
 
         return not self.transport.connected
 
+    def write(self, data):
+
+        if not self.transport.connected:
+
+            raise RuntimeError("G7 Pro is not connected")
+
+        self.transport.write(data)
+
     def read_profile(self, profile_number):
 
         raise NotImplementedError
