@@ -72,8 +72,6 @@ The goal is to determine what the original G7 Pro hardware actually supports rat
 
 Development Philosophy
 
-This project is being developed with AI assistance, but AI is intended to function as an engineering assistant and teacher rather than a replacement for understanding.
-
 Important protocol decisions, architecture decisions, and controller behavior should be understood and documented by the developer.
 
 Whenever possible, implementations should be:
